@@ -78,4 +78,6 @@ In `load_documents.py` enter the path of the text file you would like to add to 
 
 For other file types (PDF, etc.) see LangChain's documentation on [document loaders](https://python.langchain.com/api_reference/community/document_loaders.html)
 
+---
 
+Bot based on [langflow-bluesky-bot](https://github.com/philnash/langflow-bluesky-bot), under the MIT License
