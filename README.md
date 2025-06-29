@@ -2,7 +2,6 @@
 
 A social media agent combined with human-in-the-loop interface to engage with and manage mentions of your Bluesky account
 
----
 
 ## Features
 
@@ -11,7 +10,6 @@ A social media agent combined with human-in-the-loop interface to engage with an
 - Flags negative mentions for quick action
 - Human-in-the-loop moderation and reply editing
 
----
 
 ## Getting Started
 
@@ -20,7 +18,6 @@ A social media agent combined with human-in-the-loop interface to engage with an
 - Node.js and npm installed
 - Python 3.x installed
 
----
 
 ### Setup
 
@@ -80,3 +77,5 @@ In `load_documents.py` enter the path of the text file you would like to add to 
 `loader = TextLoader("[your_text_file_path]")`
 
 For other file types (PDF, etc.) see LangChain's documentation on [document loaders](https://python.langchain.com/api_reference/community/document_loaders.html)
+
+
