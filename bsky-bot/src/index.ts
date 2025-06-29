@@ -90,7 +90,7 @@ await bot.login({
 bot.on("reply", respondToIncoming);
 bot.on("mention", respondToIncoming);
 console.log(
-  `[✓] @${process.env.BSKY_HANDLE} lauscht auf Erwähnungen ---- Powered by [ Reactify ] 🤖\n`
+  `[✓] @${process.env.BSKY_HANDLE} lauscht auf Erwähnungen ---- Powered by [ bsky-social-manager ] 🤖\n`
 );
 
 async function respondToIncoming(post: Post) {
