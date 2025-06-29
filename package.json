@@ -1,0 +1,18 @@
+{
+  "name": "bsky-social-manager",
+  "version": "1.0.0",
+  "scripts": {
+    "setup-api": "cd agent-api && python -m venv env && env/bin/pip install -r requirements.txt",
+    "load-docs": "cd agent-api && python load_documents.py",
+    "start-api": "cd agent-api && env/bin/python graph.py",
+    "setup-bot": "cd bsky-bot && npm install && npm run build",
+    "start-bot": "cd bsky-bot && npm start",
+    "setup": "npm run setup-api && npm run setup-bot"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "requests": "^0.3.0"
+  }
+}

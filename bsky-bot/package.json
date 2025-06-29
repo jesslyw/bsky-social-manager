@@ -1,0 +1,26 @@
+{
+  "name": "langflow-bluesky-bot",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node --env-file=.env ./dist/src/index.js",
+    "dev": "tsx watch --env-file=.env ./src/index.ts"
+  },
+  "author": "Phil Nash <phil.nash@datastax.com> (https://datastax.com)",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.58",
+    "@langchain/groq": "^0.2.3",
+    "@langchain/langgraph": "^0.3.3",
+    "@skyware/bot": "^0.3.8"
+  }
+}
