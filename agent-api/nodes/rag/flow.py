@@ -21,7 +21,7 @@ def create_rag_flow():
         # Only run RAG if question is True
         if not state.question:
             return state
-
+        print("[RAG] entered RAG")
         query = state.comment
         result = llm_chain.invoke({"query": query})
         answer = result.get("result", "").strip()
@@ -32,6 +32,7 @@ def create_rag_flow():
         )
 
         if rag_failed:
+            print("[RAG] failed")
             return Command(
                 update={
                     "hitl_required": True,
@@ -39,7 +40,7 @@ def create_rag_flow():
                 },
                 goto="END"
             )
-
+        print("[RAG] completed")
         return Command(
             update={
                 "reply": True,

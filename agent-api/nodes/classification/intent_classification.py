@@ -18,7 +18,7 @@ Categories -> (action/bool flag):
 
 
 def classify_intent(state: MyGraphState) -> MyGraphState:
-    print("2) entered intent classification")
+    print("[Intent] entered intent classification")
     comment = state.comment
 
     prompt = (
@@ -46,13 +46,10 @@ def classify_intent(state: MyGraphState) -> MyGraphState:
         "messages": [{"role": "user", "content": input_text}]
     }
 
-    print(llm_api_url)
-    print(api_key)
     try:
         response = requests.post(
             llm_api_url, headers=headers, json=data, timeout=10)
-        print("response")
-        print(response)
+
         if response.status_code == 200:
             choices = response.json().get("choices", [])
             if choices:
@@ -64,6 +61,7 @@ def classify_intent(state: MyGraphState) -> MyGraphState:
                 intent_lower = intent.lower()
 
                 if intent_lower == "question":
+                    print("[Intent] completed")
                     return Command(
                         update={
                             "intent_result": intent,
@@ -73,6 +71,7 @@ def classify_intent(state: MyGraphState) -> MyGraphState:
                         goto="RAG"
                     )
                 elif intent_lower == "praise":
+                    print("[Intent] completed")
                     return Command(
                         update={
                             "intent_result": intent,
@@ -80,6 +79,7 @@ def classify_intent(state: MyGraphState) -> MyGraphState:
                         goto="END"
                     )
                 elif intent_lower == "feedback":
+                    print("[Intent] completed")
                     return Command(
                         update={
                             "intent_result": intent,
@@ -91,6 +91,7 @@ def classify_intent(state: MyGraphState) -> MyGraphState:
                         goto="END"
                     )
                 elif intent_lower == "uncategorized":
+                    print("[Intent] completed")
                     return Command(
                         update={
                             "intent_result": intent,
@@ -100,6 +101,7 @@ def classify_intent(state: MyGraphState) -> MyGraphState:
                         goto="END"
                     )
                 elif intent_lower == "share":
+                    print("[Intent] completed")
                     return Command(
                         update={
                             "intent_result": intent,
@@ -109,7 +111,7 @@ def classify_intent(state: MyGraphState) -> MyGraphState:
                     )
 
                 else:
-
+                    print("[Intent] completed")
                     return Command(
                         update={"intent_result": intent,
                                 "hitl_required": True},
@@ -117,7 +119,7 @@ def classify_intent(state: MyGraphState) -> MyGraphState:
                     )
 
     except requests.exceptions.Timeout:
-        print("Request timed out, LLM currently not reachable.")
+        print("[Intent] Request timed out, LLM currently not reachable.")
         return Command(
             update={"intent_result": "classifier unreachable",
                     "hitl_required": True},
