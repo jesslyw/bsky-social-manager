@@ -2,6 +2,10 @@
 
 A social media agent combined with human-in-the-loop interface to engage with and manage mentions of your Bluesky account
 
+The bot uses the [AT Protocol](https://atproto.com/) to communicate with Bluesky and is powered by [@skyware/bot](https://skyware.js.org/guides/bot/introduction/getting-started/).
+
+It listens for mentions and replies to an account you provide. When it receives an incoming post it will trigger a LangGraph graph with the text from the post, and reply using the output from the flow.
+
 
 ## Features
 
