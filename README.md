@@ -42,6 +42,7 @@ BASE_URL=[your_base_url_here]
 ```
 
 - In the bsky-bot folder, create a .env file with the following keys:
+  - You can generate an [app password for the account](https://blueskyfeeds.com/en/faq-app-password)
 
 ```
 BSKY_HANDLE=[your_bluesky_handle]
